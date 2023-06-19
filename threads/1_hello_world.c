@@ -7,11 +7,15 @@
 static void * thread_fn_callback(void *arg){
     //Extract the passed argument in thead cration
     char *input =(char *)arg;
+    int a = 0;
     //infinite loop
-    while(1){
+    while(a < 10){
         printf("Input String =%s\n",input);
         //sleep for 1 seconds
         sleep(1);
+         if(a == 5)
+             pthread_exit(0);
+        a++;
     }
 }
 
