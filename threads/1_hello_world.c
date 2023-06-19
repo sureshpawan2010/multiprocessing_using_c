@@ -44,10 +44,10 @@ int main(int argc, char **argv){
     //create child thread
     thread1_create();
     printf("Main function/thread paused\n");
-    //pause();
-    while(1){
-        printf("This is main thread\n");
-        sleep(1);
-    }
+    // Normal termination of main thread(i.e using return 0) of main thread will terminate all
+    // child thread.
+    // We can keep can keep alive our child thread even terminating our main thread by using 
+    // pthread_exit(0) in main thread.
+    pthread_exit(0);
     return 0;
 }
